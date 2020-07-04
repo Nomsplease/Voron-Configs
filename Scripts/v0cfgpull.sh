@@ -1,5 +1,5 @@
 #!/bin/bash
-defaultOutput=../Voron0/
+defaultOutput=../Voron0.035/
 echo "Pulling V0 Configs.."
 scriptDir=`realpath $0`
 dir=`dirname $scriptDir`
