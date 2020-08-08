@@ -1,0 +1,2 @@
+Fan0 - Part Fan
+Fan1 - HE Fan

@@ -1,0 +1,28 @@
+if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
+  G28
+
+;Front Screw
+G1 X60 Y5 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 1 of 2)" S2
+
+;Rear Left Screw
+G1 X5 Y115 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 1 of 2)" S2
+
+;Rear Right Screw
+G1 X115 Y115 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 1 of 2)" S2
+
+;Front Screw
+G1 X60 Y5 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 2 of 2)" S2
+
+;Rear Left Screw
+G1 X5 Y115 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 2 of 2)" S2
+
+;Rear Right Screw
+G1 X115 Y115 Z5
+M291 P"Continue?" R"Bed Screw Adjustment (Pass 2 of 2)" S2
+
+M291 P"Screw Adjustment Complete" R"Bed Screw Adjustment" S0 T2
