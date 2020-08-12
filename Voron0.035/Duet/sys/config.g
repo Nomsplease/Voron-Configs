@@ -22,16 +22,21 @@ M569 P2 S1                                     ; physical drive 2 goes forwards
 M569 P3 S1                                     ; physical drive 3 goes forwards
 M584 X0 Y1 Z2 E3                               ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with interpolation
-M92 X80 Y80 Z1600 E408                   	   ; set steps per mm
-M566 X900.00 Y900.00 Z12.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
-M203 X6000.00 Y6000.00 Z180.00 E1200.00        ; set maximum speeds (mm/min)
-M201 X500.00 Y500.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
+M92 X80 Y80 Z1600 E453                   	   ; set steps per mm
+
+; Physics
+M566 X75.00 Y75.00 Z12.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
+M203 X6000.00 Y6000.00 Z1000.00 E1200.00       ; set maximum speeds (mm/min)
+M201 X750.00 Y750.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
+M572 D0 S0.15								   ; Pressure Advance
+
+
 M906 X400 Y400 Z400 E300 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S3600                                      ; Set idle timeout
 
 ; Axis Limits
 M208 X0 Y0 Z0 S1                               ; set axis minima
-M208 X120 Y120 Z120 S0                         ; set axis maxima
+M208 X119 Y119 Z120 S0                         ; set axis maxima
 
 ; Endstops
 M574 X2 S1 P"xstop"                            ; configure active-high endstop for high end on X via pin xstop
