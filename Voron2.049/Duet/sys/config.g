@@ -59,7 +59,7 @@ M208 X0 Y0 Z-3 S1           ; Minimal Axes
 M208 X350 Y350 Z350 S0      ; Maximum Axes
 M557 X25:275 Y25:275 S25    ; Define bed mesh grid (inductive probe, positions include the Z offset!)
 ; Pressure advance
-;M572 D0 S0.05
+M572 D0 S0.025
 
 ; Thermal Settings
 
