@@ -1,0 +1,6 @@
+M83                             ; Set Extruder to relative
+G92 E0                          ; Zero Extruder
+G1 E20 F300                     ; Purge 20mm
+G92 E0                          ; Zero Extruder  
+G1 E-3 F3000                    ; Retract 1mm
+G92 E0                          ; Zero Extruder

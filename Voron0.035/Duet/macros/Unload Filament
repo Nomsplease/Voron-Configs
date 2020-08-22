@@ -1,0 +1,6 @@
+M83                             ; Set Extruder to relative
+G92 E0                          ; Zero Extruder
+G1 E5 F300                      ; Extrude 5mm to soften tip
+G92 E0                          ; Zero Extruder
+G1 E-200 F3000                  ; Retract 200mm
+G92 E0                          ; Zero Extruder
