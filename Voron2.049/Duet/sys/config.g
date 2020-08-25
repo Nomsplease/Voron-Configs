@@ -46,8 +46,8 @@ M92 E415:415                ; Set Extruder steps per mm (After Burner)
 M906 X1200 Y1200 Z1200 E600 ; Motor Currents
 M84 S3600                   ; Motor Idle timeout (1 Hr)
 M906 I50                    ; Motor Idle current percentage
-M574 X2 S1 P"xstop"   		; X active high endstop switch
-M574 Y2 S1 P"ystop"   		; Y active high endstop switch
+M574 X2 S1 P"!^xstop"   		; X active high endstop switch
+M574 Y2 S1 P"!^ystop"   		; Y active high endstop switch
 M574 Z0 C"nil"              ; Free up Z endstop
 M98 P"/macros/System/current_ab_high.g" ; We store our physics in the current files
 M98 P"/macros/System/current_z_high.g"  ; We store our physics in the current files
