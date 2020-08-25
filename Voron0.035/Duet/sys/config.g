@@ -91,7 +91,7 @@ G10 P0 R0 S0                                   ; set initial tool 0 active and s
 ; Miscellaneous
 M575 P1 S1 B57600                              ; enable support for PanelDue
 T0                                             ; select first tool
-M290 S-0.15									   ; Set babystepping
+M290 S-0.05									   ; Set babystepping
 
 ; Case Lighting
 M950 P6 C"exp.heater3" Q500 ; Green LED
