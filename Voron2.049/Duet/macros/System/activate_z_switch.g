@@ -5,7 +5,7 @@ M400                                            ; Clear the move buffer
 M558 P8 C"zstop" A5 H5 R0.2 S0.01 F120 T18000 A10 B0 ; Activate Z Probe
 
 ;Configure Z offset here
-G31 P500 X0 Y25 Z0.35                           ; Set Probe offsets
+G31 P500 X0 Y25 Z0                           ; Set Probe offsets
 ;if positive, greater value = lower nozzle
 ;if negative, more negative = higher nozzle
 

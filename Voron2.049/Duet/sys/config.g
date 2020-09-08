@@ -39,15 +39,15 @@ M569 P7 S1                  ; Z3 (E4)
 M569 P8 S0                  ; Z4 (E5)
 
 M584 X0 Y1 Z5:6:7:8 E3      ; Bind Motors
-M350 X16 Y16 Z16 E16:16 I0  ; Use 1/16 microstepping with interpolation
-M92 X80 Y80 Z400            ; Set XYZ steps per mm (1.8deg motors)
+M350 X16 Y16 Z16 E16:16 I1  ; Use 1/16 microstepping with interpolation
+M92 X160 Y160 Z800          ; Set XYZ steps per mm (0.9deg motors)
 M92 E415:415                ; Set Extruder steps per mm (After Burner)
 ;M350 Z16 I0                ; Disable Z interpolation
 M906 X1200 Y1200 Z1200 E600 ; Motor Currents
 M84 S3600                   ; Motor Idle timeout (1 Hr)
 M906 I50                    ; Motor Idle current percentage
-M574 X2 S1 P"!^xstop"   		; X active high endstop switch
-M574 Y2 S1 P"!^ystop"   		; Y active high endstop switch
+M574 X2 S1 P"!^duex.e3stop"   		; X active high endstop switch
+M574 Y2 S1 P"!^duex.e2stop"   		; Y active high endstop switch
 M574 Z0 C"nil"              ; Free up Z endstop
 M98 P"/macros/System/current_ab_high.g" ; We store our physics in the current files
 M98 P"/macros/System/current_z_high.g"  ; We store our physics in the current files
@@ -57,9 +57,11 @@ M98 P"/macros/System/activate_z_probe.g"; Activate Probe on startup
 M671 X-60:-60:410:410 Y-10:420:420:-10 S20      ; Define Z belts locations (Front_Left, Back_Left, Back_Right, Front_Right)
 M208 X0 Y0 Z-3 S1           ; Minimal Axes
 M208 X350 Y350 Z350 S0      ; Maximum Axes
-M557 X25:275 Y25:275 S25    ; Define bed mesh grid (inductive probe, positions include the Z offset!)
+M557 X25:325 Y25:295 S25    ; Define bed mesh grid (inductive probe, positions include the Z offset!)
 ; Pressure advance
 M572 D0 S0.025
+; DAA
+M593 F39.3
 
 ; Thermal Settings
 
@@ -80,6 +82,11 @@ M307 H1 B0 S1.00                                     ; disable bang-bang mode fo
 M308 S3 P"duex.cs6" Y"dht22"       A"Chamber Temp"    ; Temperature
 M308 S4 P"S3.1"     Y"dhthumidity" A"Chamber Hum[%]"  ; Humidity
 
+;; Boards
+M308 S5 Y"drivers" A"Drivers-Duet"
+M308 S6 Y"drivers-duex" A"Drivers-Duex"
+M308 S7 Y"mcu-temp" A"MCU"
+
 ;; PID Settings
 M307 H2 B1 S0.01 V23.7							     ;PID for chamber set to reduce chance of faults with no heater
 M307 H0 A301.0 C845.3 D1.4 S1.00 V23.6 B0		
@@ -91,20 +98,20 @@ M912 P0 S-13
 ; Fans
 M106 P1 H-1                 ; Disable auto thermal mode on Fan1
 
-;; Hotend Fan
-M950 F0 C"fan0" Q500
-M106 P0 T45 H1 C"Hotend Fan"
-
 ;; Part Cooling
-M950 F1 C"fan1" Q500
-M106 P1 S0 C"Part Fan"
+M950 F0 C"duex.fan4" Q500
+M106 P0 S0 C"Part Fan"
+
+;; Hotend Fan
+M950 F1 C"duex.fan3" Q500
+M106 P1 T45 H1 C"Hotend Fan"
 
 ;; Basement Cooling
-M950 F2 C"duex.fan7" Q500
+M950 F2 C"fan1" Q500
 M106 P2 T45 H1 C"Basement Fan"
 
 ;; Exhaust Fan
-M950 F3 C"duex.fan8" Q500
+M950 F3 C"fan0" Q500
 M106 P3 T45 H1 C"Exhaust Fan"
 
 ; Tools
@@ -122,3 +129,6 @@ M42 P6 S0
 M42 P7 S0
 M42 P8 S0
 M42 P9 S1
+
+; Enable Logging
+;M929 P"eventlog.txt" S1

@@ -11,19 +11,19 @@ while true
   if iterations = 5
     abort "Too many auto calibration attempts"
   
-  G30 P0 X300 Y275 Z-99999 ; probe near front left belt
+  G30 P0 X325 Y295 Z-99999 ; probe near front left belt
   if result != 0
     continue
   
-  G30 P1 X300 Y50 Z-99999 ; probe near back left belt
+  G30 P1 X325 Y25 Z-99999 ; probe near back left belt
   if result != 0
     continue
   
-  G30 P2 X50 Y50 Z-99999 ; probe near back right belt 
+  G30 P2 X25 Y25 Z-99999 ; probe near back right belt 
   if result != 0
     continue
 
-  G30 P3 X50 Y275 Z-99999 S4 ; probe near front right belt 
+  G30 P3 X25 Y295 Z-99999 S4 ; probe near front right belt 
   if result != 0
     continue
 

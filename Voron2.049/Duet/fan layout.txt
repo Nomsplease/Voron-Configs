@@ -1,4 +1,0 @@
-Fan0 = HE Fan
-FAN1 = Part Fans
-Fan8 = Exhaust Fan
-Fan7 = Basement Fans
