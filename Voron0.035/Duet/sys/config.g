@@ -25,13 +25,13 @@ M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with in
 M92 X80 Y80 Z1600 E453                   	   ; set steps per mm
 
 ; Physics
-M566 X1000.00 Y1000.00 Z120.00 E200            ; set maximum instantaneous speed changes (mm/min)
+M566 X1800.00 Y1800.00 Z120.00 E200            ; set maximum instantaneous speed changes (mm/min)
 M203 X6000.00 Y6000.00 Z1000.00 E1200.00       ; set maximum speeds (mm/min)
-M201 X750.00 Y750.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
+M201 X10000.00 Y10000.00 Z20.00 E250.00        ; set accelerations (mm/s^2)
 M572 D0 S1								       ; Pressure Advance
 
 
-M906 X400 Y400 Z400 E300 I30                   ; set motor currents (mA) and motor idle factor in per cent
+M906 X300 Y300 Z300 E300 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S3600                                      ; Set idle timeout
 
 ; Axis Limits
@@ -70,6 +70,10 @@ M307 H1 A415.6 C166.3 D4.5 S1.00 V24.1 B0            ; Dragon Non-HF W/ Sock
 M308 S3 P"duex.cs5" Y"dht22"       A"Chamber Temp"    ; Temperature
 M308 S4 P"S3.1"     Y"dhthumidity" A"Chamber Hum[%]"  ; Humidity
 
+;; Duet Temps
+M308 S5 Y"drivers" A"Drivers"
+M308 S6 Y"mcu-temp" A"MCU"
+
 ;; MCU Temp Calibration
 M912 P0 S-6.1
 
@@ -91,7 +95,7 @@ G10 P0 R0 S0                                   ; set initial tool 0 active and s
 ; Miscellaneous
 M575 P1 S1 B57600                              ; enable support for PanelDue
 T0                                             ; select first tool
-M290 S-0.05									   ; Set babystepping
+M290 S-0.08									   ; Set babystepping
 
 ; Case Lighting
 M950 P6 C"exp.heater3" Q500 ; Green LED
