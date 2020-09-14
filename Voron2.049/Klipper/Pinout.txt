@@ -1,0 +1,27 @@
+Z1 = MCUZ X
+Z2 = MCUZ Y
+Z3 = MCUZ Z
+Z4 = MCUZ E0
+
+A = MCU X
+B = MCU Y
+E = MCU Z
+
+E Heat = MCU HE1
+E Temp = MCU E1 SPI
+B Heat = MCU Fan
+B Temp = MCU TH1
+
+Z Sw = MCUZ Z+
+Z Pb = MCUZ Z-
+Halleffect Vin = MCU Y- +5v
+Halleffect Gnd = MCU Y- GND
+Y Stop = MCU Y-
+X Stop = MCU X-
+
+Ex Fan = MCUZ HE0
+Base Fan = MCUZ H-Bed
+HE Fan = MCU H-Bed
+Part Fan = MCU HE0
+
+LEDs = MCUZ HE1
