@@ -4,4 +4,4 @@ echo "Pulling V0 Configs.."
 scriptDir=`realpath $0`
 dir=`dirname $scriptDir`
 cd $dir
-scp voron0:/home/pi/printer.cfg $defaultOutput/printer.cfg
+rsync -avhP --delete pi@voron0:/home/pi/klipper_config/ $defaultOutput/
