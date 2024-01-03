@@ -1,0 +1,13 @@
+[Variables]
+mmu_calibration_0 = 1.0
+mmu_calibration_bowden_length = 989.8
+mmu_calibration_clog_length = 30.0
+mmu_encoder_resolution = 0.67701
+mmu_gear_rotation_distance = 22.731687
+mmu_selector_bypass = 0.0
+mmu_selector_offsets = [2.0, 23.2, 44.0, 70.4, 91.2]
+mmu_state_filament_pos = 8
+mmu_state_gate_selected = -1
+mmu_state_gate_status = [1, 0, 0, 0, 0]
+mmu_state_tool_selected = -1
+mmu_state_tool_to_gate_map = [0, 1, 2, 3, 4]

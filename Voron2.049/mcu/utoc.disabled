@@ -1,0 +1,9 @@
+[mcu UTOC]
+canbus_uuid: 117882662bd9
+
+# embedded temperature sensor
+[temperature_sensor UTOC]
+sensor_type: temperature_mcu
+sensor_mcu: UTOC
+min_temp: 0
+max_temp: 100
